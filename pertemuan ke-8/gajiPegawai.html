@@ -1,0 +1,83 @@
+<script>
+	function proses(){
+		let namaPegawai = document.form.namaPegawai.value;
+		let masuk = document.form.masuk.value;
+		let jamKerja = document.form.jamKerja.value;
+		let upahPerJam = document.form.upahPerJam.value;
+		let upahLembur = 0;
+		let lamaLembur = 0;
+		console.log(namaPegawai)
+		if(jamKerja > 8){
+			lamaLembur = jamKerja - 8
+			upahLembur = lamaLembur * (2 * upahPerJam);
+		}
+			
+		let lamaKerja = 2024 - masuk;
+		let gajiPerhari = (jamKerja - lamaLembur) * upahPerJam;
+		let gajiTotal = gajiPerhari + upahLembur
+		
+		document.form.lamaKerja.value = lamaKerja;
+		document.form.gajiPerhari.value = gajiPerhari;
+		document.form.upahLembur.value = upahLembur;
+		document.form.gajiTotal.value = gajiTotal;
+		
+		
+	}
+</script>
+<form name=form>
+<center>
+<h1> Form Gaji Pegawai </h1>
+<hr>
+<table>
+<tr><td>Nama Pegawai: <td><input type=text name=namaPegawai>
+<tr><td>Tahun Masuk: <td><input type=number name=masuk>
+<tr><td>Jam Kerja: <td><input type=number name=jamKerja>
+<tr><td>Upah Perjam: <td><input type=number name=upahPerJam>
+<hr>
+<tr><td>Lama Kerja: <td><input type=number name=lamaKerja readonly>
+<tr><td>Gaji Perhari: <td><input type=number name=gajiPerhari readonly>
+<tr><td>Upah Lembur: <td><input type=number name=upahLembur readonly>
+<hr>
+<tr><td>Gaji Total: <td> <input type=number name=gajiTotal readonly>
+
+</table>
+<hr>
+<input type=button value="proses" onclick="proses()">
+<input type=reset >
+</form>
+
+
+
+<script>
+let namaPegawai = "Budiman";
+let masuk = 2020;
+let jamKerja = 5	;
+let upahPerJam = 20000;
+let upahLembur = 0;
+let lamaLembur = 0;
+
+if(jamKerja > 8){
+	lamaLembur = jamKerja - 8
+	upahLembur = lamaLembur * (2 * upahPerJam);
+}
+	
+let lamaKerja = 2024 - masuk;
+let gajiPerhari = (jamKerja - lamaLembur) * upahPerJam;
+let gajiTotal = gajiPerhari + upahLembur
+
+/**
+document.write("<h1>Program Gaji Pegawai</h1>", "<hr><br>")
+document.write("-------------", "<br>")
+document.write("Nama Pegawai: ", namaPegawai, "<br>")
+document.write("Tahun Masuk: ", masuk, "<br>")
+document.write("Jam Kerja: ", jamKerja, "<br>")
+document.write("Upah per jam: ", upahPerJam, "<br>")
+document.write("-------------", "<br>")
+document.write("Lama Kerja: ", lamaKerja, " Tahun	 <br>")
+document.write("Gaji Perhari: ", gajiPerhari, "<br>",)
+document.write("Upah Lembur: ", upahLembur, "<br>",)
+document.write("-------------", "<br>")
+document.write("Gaji Total: ", gajiTotal, "<br>",)
+**/
+
+</script>
