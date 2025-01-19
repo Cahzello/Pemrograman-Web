@@ -1,0 +1,83 @@
+<center>
+<meta name="viewport" content="width=device-width, initial-scale=1" >
+<link href="./w3.css" rel="stylesheet">
+<div class="w3-container"> 
+<div class="w3-panel w3-cyan w3-round-xxlarge">
+<h1> Program Gaji Pegawai
+</div>
+
+<div class="w3-panel w3-yellow w3-card-4">
+
+<hr>
+<form name=form>
+<table>
+<tr><td>Nama Pegawai<td>:<input type=text name=namapegawai size=20>
+<tr><td>Bagian<td>:<select name=jabatan>
+<option>HRD
+<option>Pemasaran
+<option>Produksi
+<option>OB
+</select>
+<tr><td>Pendidikan<td>:<input type=radio name=pendidikan value=s1>S1
+<input type=radio name=pendidikan value=s2>S2
+<input type=radio name=pendidikan value=s3>S3
+<input type=radio name=pendidikan value=SMTA>SMTA
+<tr><td>Tunjangan<td>:<input type=checkbox name=anak>Anak
+<input type=checkbox name=keluarga>Keluarga
+<input type=checkbox name=makan>Makan
+<tr><td colspan=2 ><hr>
+<tr><td>Gaji Pokok<td>:<input type=text name=gajipokok size=10 readonly>
+<tr><td>Tunjangan Pendidikan<td>:<input type=text name=tjpendidikan size=10 readonly>
+<tr><td>Tj lain<td>:<input type=text name=tjlain size=10 readonly>
+<tr><td>Total Gaji<td>:<input type=text name=totalgaji size=10 readonly>
+</table>
+</div>
+
+<div class="w3-panel w3-cyan w3-round-xxlarge">
+<p>
+<input type=button onclick="proses()" value=kirim class="w3-btn w3-yellow w3-round-xxlarge">
+<input type=reset class="w3-btn w3-yellow w3-round-xxlarge">
+</p>
+</div>
+
+</div>
+
+
+<script>
+function proses(){
+	let jabatan = document.form.jabatan.value;
+	let gajipokok = 0
+	if(jabatan == "HRD") gajipokok = 800000
+	if(jabatan == "Pemasaran") gajipokok = 7500000
+	if(jabatan == "Produksi") gajipokok = 6000000
+	if(jabatan == "OB") gajipokok = 5500000
+	
+	let pendidikan = document.form.pendidikan.value;
+	let gajipendidikan = 0
+	if(pendidikan == "SMTA") gajipendidikan = 500000
+	if(pendidikan == "s1") gajipendidikan = 1000000
+	if(pendidikan == "s2") gajipendidikan = 2000000
+	if(pendidikan == "s3") gajipendidikan = 3000000
+	
+	tjlain=0
+	if(document.form.anak.checked)tjlain += 0.1 * gajipokok;
+	if(document.form.keluarga.checked)tjlain += 0.15 * gajipokok;
+	if(document.form.makan.checked)tjlain += 0.2 * gajipokok;
+	
+	
+	document.form.gajipokok.value = gajipokok
+	document.form.tjpendidikan.value = gajipendidikan
+	document.form.tjlain.value = tjlain
+	document.form.totalgaji.value = gajipokok + gajipendidikan + tjlain
+	
+	
+	
+	
+}
+</script>
+
+
+
+</form>
+
+

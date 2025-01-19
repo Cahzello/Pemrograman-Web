@@ -1,0 +1,22 @@
+<center>
+<h1>
+Si Agus Menyimpan Uang Di Bank
+<hr>
+Saldo awal 1 juta
+<hr>
+<pre>
+<table border=1 >
+<tr><td>No<td>Saldo<td>Bunga<td>saldo akhir</tr>
+<script>
+let saldoAwal = 1000000
+
+for(i=1; i<=12;i++){
+	bunga = saldoAwal * 0.05
+	akhir = saldoAwal + bunga
+	document.write("<tr><td>", i,'<td>', Math.round(saldoAwal), '<td>', Math.round(bunga), '<td>', Math.round(akhir))
+	saldoAwal = akhir
+	
+}
+
+</script>
+</table>
